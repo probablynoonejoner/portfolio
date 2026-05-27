@@ -20,6 +20,7 @@ function HandRiveInner() {
     autoBind: true,
     shouldDisableRiveListeners: false,
   });
+  
   useEffect(() => {
     if (!rive || !canvas) return;
     rive.resizeDrawingSurfaceToCanvas();
