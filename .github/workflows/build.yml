@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: [actions/checkout@v4](https://github.com)
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: [actions/setup-node@v4](https://github.com)
+        uses: actions/setup-node@v4
         with:
           node-version: '20' # Specify your Node.js version
           cache: 'npm'
@@ -27,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: Upload Build Artifact
-        uses: [actions/upload-artifact@v4](https://github.com)
+        uses: actions/upload-artifact@v4
         with:
           name: production-files
           path: build
