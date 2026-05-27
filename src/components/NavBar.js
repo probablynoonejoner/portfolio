@@ -86,15 +86,6 @@ export default function NavBar({ footer = false }) {
           <NavLink to="/work" data-text="Work" className={({ isActive }) => linkClass(isActive)}>
             Work
           </NavLink>
-          <a
-            href={`${process.env.PUBLIC_URL}/Jonah_Freedman_Resume.pdf`}
-            data-text="Resume"
-            className="navbar__link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Resume
-          </a>
           <NavLink to="/about" data-text="About" className={({ isActive }) => linkClass(isActive)}>
             About
           </NavLink>
@@ -127,15 +118,6 @@ export default function NavBar({ footer = false }) {
                 className={({ isActive }) => `navbar__overlay-link${isActive ? ' navbar__overlay-link--active' : ''}`}>
                 Work
               </NavLink>
-              <a
-                href={`${process.env.PUBLIC_URL}/Jonah_Freedman_Resume.pdf`}
-                className="navbar__overlay-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMenuOpen(false)}
-              >
-                Resume
-              </a>
               <NavLink to="/about" onClick={() => setMenuOpen(false)}
                 className={({ isActive }) => `navbar__overlay-link${isActive ? ' navbar__overlay-link--active' : ''}`}>
                 About
