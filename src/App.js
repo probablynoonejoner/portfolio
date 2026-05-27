@@ -74,7 +74,7 @@ function App() {
 
   return (
     <LenisContext.Provider value={lenisRef}>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />

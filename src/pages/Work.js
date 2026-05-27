@@ -51,7 +51,7 @@ function LazyRiveWrapper({ children }) {
 function SparkAIRive() {
   const containerRef = useRef(null);
   const { RiveComponent, rive } = useRive({
-    src: '/rive/spark_for_project_card.riv',
+    src: `${process.env.PUBLIC_URL}/rive/spark_for_project_card.riv`,
     artboard: 'Active/Idle',
     stateMachines: 'Hero Desktop (Hover)',
     autoplay: true,
@@ -70,7 +70,7 @@ function SparkAIRive() {
 function ContentJourneysRive() {
   const containerRef = useRef(null);
   const { RiveComponent, rive } = useRive({
-    src: '/rive/content_journeys_project_card.riv',
+    src: `${process.env.PUBLIC_URL}/rive/content_journeys_project_card.riv`,
     artboard: 'INT PATHWAYS',
     stateMachines: 'main',
     autoplay: true,
@@ -89,7 +89,7 @@ function ContentJourneysRive() {
 function EmojiReactionsRive() {
   const containerRef = useRef(null);
   const { RiveComponent, rive } = useRive({
-    src: '/rive/emoji_reactions_project_card.riv',
+    src: `${process.env.PUBLIC_URL}/rive/emoji_reactions_project_card.riv`,
     artboard: 'emoji embed',
     stateMachines: 'State Machine 1',
     autoplay: true,
@@ -107,7 +107,7 @@ function EmojiReactionsRive() {
 function ChallengesTournamentRive() {
   const containerRef = useRef(null);
   const { RiveComponent, rive } = useRive({
-    src: '/rive/challenges_just_tournament.riv',
+    src: `${process.env.PUBLIC_URL}/rive/challenges_just_tournament.riv`,
     artboard: 'Tournament',
     stateMachines: 'State Machine 1',
     autoplay: true,
@@ -127,7 +127,7 @@ function ChallengesTournamentRive() {
 function UIAnimationsRive() {
   const containerRef = useRef(null);
   const { RiveComponent, rive } = useRive({
-    src: '/rive/ui_animations_project_card.riv',
+    src: `${process.env.PUBLIC_URL}/rive/ui_animations_project_card.riv`,
     artboard: 'coach call',
     stateMachines: 'State Machine 1',
     autoplay: true,
@@ -145,7 +145,7 @@ function UIAnimationsRive() {
 function EventCalendarCard() {
   return (
     <div style={{ position: 'absolute', inset: 0 }}>
-      <img src="/images/EventCal.jpg" alt="" className="work__card-img work__card-img--pre-zoom" />
+      <img src={`${process.env.PUBLIC_URL}/images/EventCal.jpg`} alt="" className="work__card-img work__card-img--pre-zoom" />
     </div>
   );
 }
@@ -153,7 +153,7 @@ function EventCalendarCard() {
 function WritingRevolutionCard() {
   return (
     <div style={{ position: 'absolute', inset: 0 }}>
-      <img src="/images/twr-project-card.jpg" alt="" className="work__card-img work__card-img--pre-zoom" />
+      <img src={`${process.env.PUBLIC_URL}/images/twr-project-card.jpg`} alt="" className="work__card-img work__card-img--pre-zoom" />
     </div>
   );
 }
@@ -161,7 +161,7 @@ function WritingRevolutionCard() {
 function VUTalentCard() {
   return (
     <div style={{ position: 'absolute', inset: 0 }}>
-      <img src="/images/vu-talent-project-card.jpg" alt="" className="work__card-img" />
+      <img src={`${process.env.PUBLIC_URL}/images/vu-talent-project-card.jpg`} alt="" className="work__card-img" />
     </div>
   );
 }
@@ -169,7 +169,7 @@ function VUTalentCard() {
 function VitalElementsCard() {
   return (
     <div style={{ position: 'absolute', inset: 0 }}>
-      <img src="/images/tve-project-card.jpg" alt="" className="work__card-img" />
+      <img src={`${process.env.PUBLIC_URL}/images/tve-project-card.jpg`} alt="" className="work__card-img" />
     </div>
   );
 }

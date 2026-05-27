@@ -7,7 +7,7 @@ import { scrollFadeUp, scrollStaggerParent, scrollStaggerChild } from '../../uti
 import '../../pages/Showcase.css';
 import './EmojiReactions.css';
 
-const RIVE_SRC = '/rive/coach_connect_message_reactions.riv';
+const RIVE_SRC = `${process.env.PUBLIC_URL}/rive/coach_connect_message_reactions.riv`;
 
 // ── Rive embed components ──────────────────────────────────────────
 
@@ -132,7 +132,7 @@ export default function EmojiReactions({ project, prev, next }) {
               <HeroEmbed />
             </div>
             <img
-              src="/images/MacBook Pro.png"
+              src={`${process.env.PUBLIC_URL}/images/MacBook Pro.png`}
               alt=""
               style={{ position: 'absolute', top: 0, left: 0, width: 1104, height: 690, pointerEvents: 'none' }}
             />

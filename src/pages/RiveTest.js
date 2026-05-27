@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 export default function RiveTest() {
   const { RiveComponent, rive } = useRive({
-    src: '/rive/spark_case_studie_elements.riv',
+    src: `${process.env.PUBLIC_URL}/rive/spark_case_studie_elements.riv`,
     artboard: 'Spark Active 1',
     stateMachines: 'State Machine 1',
     autoplay: true,

@@ -48,7 +48,7 @@ export default function WritingRevolution({ project, prev, next }) {
       <motion.div className="cs-wr__video-section" {...scrollFadeUp}>
         <div className="cs-wr__video-bleed cs-wr__video-bleed--hero">
           <video
-            src="/video/TWR_OVERVIEW_V2_compressed.mp4"
+            src={`${process.env.PUBLIC_URL}/video/TWR_OVERVIEW_V2_compressed.mp4`}
             controls
             autoPlay={!isMobile}
             muted
@@ -64,7 +64,7 @@ export default function WritingRevolution({ project, prev, next }) {
       <motion.div className="cs-wr__video-section" {...scrollFadeUp}>
         <div className="cs-wr__video-bleed">
           <video
-            src="/video/THM_V_3_compressed.mp4"
+            src={`${process.env.PUBLIC_URL}/video/THM_V_3_compressed.mp4`}
             controls
             preload="metadata"
             onLoadedMetadata={seekToFirstFrame}

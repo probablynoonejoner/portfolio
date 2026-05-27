@@ -45,7 +45,7 @@ export default function VUTalent({ project, prev, next }) {
       <motion.div className="cs-vu__embed-section" {...scrollFadeUp}>
         <div className="cs-vu__video-bleed">
           <video
-            src="/video/VU_HEADER_ANIMATION_V_2_slowed_25_percent_copy.mp4"
+            src={`${process.env.PUBLIC_URL}/video/VU_HEADER_ANIMATION_V_2_slowed_25_percent_copy.mp4`}
             autoPlay
             muted
             loop
@@ -75,10 +75,10 @@ export default function VUTalent({ project, prev, next }) {
       <motion.div className="cs-vu__embed-section" {...scrollFadeUp}>
         <SectionLabel>Supporting Animations</SectionLabel>
         <div className="cs-vu__grid">
-          <video src="/video/VU_UI_1.mp4" autoPlay muted loop playsInline loading="lazy" style={{ width: '100%', display: 'block' }} />
-          <video src="/video/VU_UI_2.mp4" autoPlay muted loop playsInline loading="lazy" style={{ width: '100%', display: 'block' }} />
-          <video src="/video/VU_UI_3.mp4" autoPlay muted loop playsInline loading="lazy" style={{ width: '100%', display: 'block' }} />
-          <video src="/video/VU_UI_4.mp4" autoPlay muted loop playsInline loading="lazy" style={{ width: '100%', display: 'block' }} />
+          <video src={`${process.env.PUBLIC_URL}/video/VU_UI_1.mp4`} autoPlay muted loop playsInline loading="lazy" style={{ width: '100%', display: 'block' }} />
+          <video src={`${process.env.PUBLIC_URL}/video/VU_UI_2.mp4`} autoPlay muted loop playsInline loading="lazy" style={{ width: '100%', display: 'block' }} />
+          <video src={`${process.env.PUBLIC_URL}/video/VU_UI_3.mp4`} autoPlay muted loop playsInline loading="lazy" style={{ width: '100%', display: 'block' }} />
+          <video src={`${process.env.PUBLIC_URL}/video/VU_UI_4.mp4`} autoPlay muted loop playsInline loading="lazy" style={{ width: '100%', display: 'block' }} />
         </div>
       </motion.div>
 

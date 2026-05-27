@@ -45,7 +45,7 @@ export default function VitalElements({ project, prev, next }) {
       <motion.div className="cs-ve__embed-section" {...scrollFadeUp}>
         <div className="cs-ve__video-bleed">
           <video
-            src="/video/The_vital_elements_logo_animation.mp4"
+            src={`${process.env.PUBLIC_URL}/video/The_vital_elements_logo_animation.mp4`}
             autoPlay
             muted
             loop

@@ -12,7 +12,7 @@ import './SparkAI.css';
 
 function PrototypeEmbedRive() {
   const { RiveComponent: HeroRive } = useRive({
-    src: '/rive/spark_prototype.riv',
+    src: `${process.env.PUBLIC_URL}/rive/spark_prototype.riv`,
     artboard: 'HERO',
     stateMachines: ['Hero State Machine', 'Hero Desktop (Hover)', 'State Machine 1'],
     autoplay: true,
@@ -47,7 +47,7 @@ const embedBg = { background: '#DEE1FF', borderRadius: '30px' };
 function makeAlertEmbed(artboard) {
   function EmbedRive() {
     const { RiveComponent, rive } = useRive({
-      src: '/rive/spark_case_studie_elements.riv',
+      src: `${process.env.PUBLIC_URL}/rive/spark_case_studie_elements.riv`,
       artboard,
       stateMachines: 'State Machine 1',
       autoplay: true,
@@ -83,7 +83,7 @@ function makeAlertEmbed(artboard) {
 function makeActiveEmbed(artboard, stateMachines) {
   function EmbedRive() {
     const { RiveComponent, rive } = useRive({
-      src: '/rive/spark_case_studie_elements.riv',
+      src: `${process.env.PUBLIC_URL}/rive/spark_case_studie_elements.riv`,
       artboard,
       stateMachines,
       autoplay: true,
@@ -250,7 +250,7 @@ export default function SparkAI({ project, prev, next }) {
               <PrototypeEmbed />
             </div>
             <img
-              src="/images/iphone.png"
+              src={`${process.env.PUBLIC_URL}/images/iphone.png`}
               alt=""
               style={{ position: 'absolute', top: 0, left: 0, width: 344, height: 710, pointerEvents: 'none' }}
             />

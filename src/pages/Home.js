@@ -9,12 +9,12 @@ import { scrollFadeUp, EASE } from '../utils/animation';
 import './Home.css';
 
 const SM = 'State Machine 1';
-const RIV_SRC_DESKTOP = 'rive/homepageelement.riv';
-const RIV_SRC_MOBILE  = 'rive/homepageelementmobile.riv';
+const RIV_SRC_DESKTOP = `${process.env.PUBLIC_URL}/rive/homepageelement.riv`;
+const RIV_SRC_MOBILE  = `${process.env.PUBLIC_URL}/rive/homepageelementmobile.riv`;
 
 function HandRiveInner() {
   const { RiveComponent, rive, canvas } = useRive({
-    src: 'rive/home_page_hand.riv',
+    src: `${process.env.PUBLIC_URL}/rive/home_page_hand.riv`,
     stateMachines: SM,
     autoplay: true,
     autoBind: true,

@@ -34,8 +34,8 @@ function CharacterPickerEmbed() {
   // Phones max ~430px portrait; smallest iPad is 744px — use desktop riv for all iPads
   const isPhone = isMobile && typeof window !== 'undefined' && window.innerWidth < 600;
   const src = isPhone
-    ? '/rive/just_character_picker_mobile.riv'
-    : '/rive/challenges_just_character_picker.riv';
+    ? `${process.env.PUBLIC_URL}/rive/just_character_picker_mobile.riv`
+    : `${process.env.PUBLIC_URL}/rive/challenges_just_character_picker.riv`;
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
@@ -59,7 +59,7 @@ function CharacterPickerEmbed() {
 
 function ActivityLibraryEmbedRive({ onBounds }) {
   const { RiveComponent, rive } = useRive({
-    src: '/rive/challenges_all_lined_up_.riv',
+    src: `${process.env.PUBLIC_URL}/rive/challenges_all_lined_up_.riv`,
     artboard: 'Main',
     stateMachines: 'State Machine 1',
     autoplay: true,
@@ -113,7 +113,7 @@ function ActivityLibraryEmbed() {
 
 function TournamentEmbedRive() {
   const { RiveComponent, rive } = useRive({
-    src: '/rive/challenges_just_tournament.riv',
+    src: `${process.env.PUBLIC_URL}/rive/challenges_just_tournament.riv`,
     artboard: 'Tournament',
     stateMachines: 'State Machine 1',
     autoplay: true,

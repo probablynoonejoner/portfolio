@@ -11,7 +11,7 @@ import './ContentJourneys.css';
 
 function PrototypeEmbedRive() {
   const { RiveComponent, rive } = useRive({
-    src: '/rive/pathways__animation_prototype.riv',
+    src: `${process.env.PUBLIC_URL}/rive/pathways__animation_prototype.riv`,
     artboard: 'INT PATHWAYS',
     stateMachines: 'main',
     autoplay: true,
@@ -44,7 +44,7 @@ function PrototypeEmbed() {
 
 function ProgressBarEmbedRive() {
   const { RiveComponent, rive } = useRive({
-    src: '/rive/pathways_case_study_elements.riv',
+    src: `${process.env.PUBLIC_URL}/rive/pathways_case_study_elements.riv`,
     artboard: 'quizz progress indicator',
     stateMachines: 'Progress Bar',
     autoplay: true,
@@ -76,7 +76,7 @@ function ProgressBarEmbed() {
 
 function QuizPhoneEmbedRive() {
   const { RiveComponent, rive } = useRive({
-    src: '/rive/pathways__animation_prototype.riv',
+    src: `${process.env.PUBLIC_URL}/rive/pathways__animation_prototype.riv`,
     artboard: 'Quiz',
     stateMachines: 'State Machine 1',
     autoplay: true,
@@ -205,7 +205,7 @@ export default function ContentJourneys({ project, prev, next }) {
               <PrototypeEmbed />
             </div>
             <img
-              src="/images/iphone.png"
+              src={`${process.env.PUBLIC_URL}/images/iphone.png`}
               alt=""
               style={{ position: 'absolute', top: 0, left: 0, width: 352, height: 710, pointerEvents: 'none' }}
             />
@@ -241,7 +241,7 @@ export default function ContentJourneys({ project, prev, next }) {
       <motion.div className="cs-cj__embed-section" {...scrollFadeUp}>
         <SectionLabel>Matching Game Logic</SectionLabel>
         <img
-          src="/images/Matching Game Logic Flow.png"
+          src={`${process.env.PUBLIC_URL}/images/Matching Game Logic Flow.png`}
           alt="Matching Game Logic Flow"
           style={{ width: '100%', maxWidth: '1104px', display: 'block' }}
         />
@@ -261,7 +261,7 @@ export default function ContentJourneys({ project, prev, next }) {
               <QuizPhoneEmbed />
             </div>
             <img
-              src="/images/iphone.png"
+              src={`${process.env.PUBLIC_URL}/images/iphone.png`}
               alt=""
               style={{ position: 'absolute', top: 0, left: 0, width: 352, height: 710, pointerEvents: 'none' }}
             />

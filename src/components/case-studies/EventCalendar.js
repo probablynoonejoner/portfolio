@@ -12,7 +12,7 @@ import './EventCalendar.css';
 
 function PrototypeEmbedRive() {
   const { RiveComponent, rive } = useRive({
-    src: '/rive/event_cal_prototype.riv',
+    src: `${process.env.PUBLIC_URL}/rive/event_cal_prototype.riv`,
     artboard: 'Prototype',
     stateMachines: 'State Machine 1',
     autoplay: true,
@@ -104,7 +104,7 @@ export default function EventCalendar({ project, prev, next }) {
               <WebMDCalendar />
             </div>
             <img
-              src="/images/iphone.png"
+              src={`${process.env.PUBLIC_URL}/images/iphone.png`}
               alt=""
               style={{ position: 'absolute', top: 0, left: 0, width: 345, height: 710, pointerEvents: 'none' }}
             />
@@ -125,8 +125,8 @@ export default function EventCalendar({ project, prev, next }) {
       <motion.section className="cs-ec__gallery" {...scrollFadeUp}>
         <SectionLabel>Iterating Designs</SectionLabel>
         <picture>
-          <source media="(max-width: 768px)" srcSet="/images/event_cal_wireframes_mobile.jpg" />
-          <img src="/images/event_cal_desktop.jpg" alt="Event Calendar process" className="cs-ec__gallery-full" />
+          <source media="(max-width: 768px)" srcSet={`${process.env.PUBLIC_URL}/images/event_cal_wireframes_mobile.jpg`} />
+          <img src={`${process.env.PUBLIC_URL}/images/event_cal_desktop.jpg`} alt="Event Calendar process" className="cs-ec__gallery-full" />
         </picture>
       </motion.section>
 

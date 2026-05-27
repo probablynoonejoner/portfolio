@@ -8,7 +8,7 @@ import './NavBar.css';
 function NavLogo() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
-  const src = isMobile ? '/rive/mobile_site_logo.riv' : '/rive/site_logo.riv';
+  const src = isMobile ? `${process.env.PUBLIC_URL}/rive/mobile_site_logo.riv` : `${process.env.PUBLIC_URL}/rive/site_logo.riv`;
   const { RiveComponent, rive } = useRive({
     src,
     stateMachines: 'State Machine 1',
@@ -42,7 +42,7 @@ export default function NavBar({ footer = false }) {
   useEffect(() => { menuOpenRef.current = menuOpen; }, [menuOpen]);
 
   const { RiveComponent: HamburgerRive, rive: hamburgerRive } = useRive({
-    src: '/rive/site_hamburger.riv',
+    src: `${process.env.PUBLIC_URL}/rive/site_hamburger.riv`,
     stateMachines: 'State Machine 1',
     autoplay: true,
     autoBind: true,
@@ -87,7 +87,7 @@ export default function NavBar({ footer = false }) {
             Work
           </NavLink>
           <a
-            href="/Jonah_Freedman_Resume.pdf"
+            href={`${process.env.PUBLIC_URL}/Jonah_Freedman_Resume.pdf`}
             data-text="Resume"
             className="navbar__link"
             target="_blank"
@@ -128,7 +128,7 @@ export default function NavBar({ footer = false }) {
                 Work
               </NavLink>
               <a
-                href="/Jonah_Freedman_Resume.pdf"
+                href={`${process.env.PUBLIC_URL}/Jonah_Freedman_Resume.pdf`}
                 className="navbar__overlay-link"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -12,7 +12,7 @@ import './UIAnimations.css';
 function makeRiveEmbed(artboard, stateMachines) {
   function EmbedRive() {
     const config = {
-      src: '/rive/ui_animations.riv',
+      src: `${process.env.PUBLIC_URL}/rive/ui_animations.riv`,
       artboard,
       autoplay: true,
       autoBind: true,
