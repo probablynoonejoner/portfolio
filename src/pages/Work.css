@@ -1,0 +1,154 @@
+.work {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Hero ───────────────────────────────────────────────────── */
+.work__hero {
+  padding: var(--section-gap) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 60%;
+}
+
+.work__headline {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  color: var(--color-black);
+}
+
+.work__subhead {
+  font-size: var(--font-size-body1);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-black);
+  opacity: 0.6;
+}
+
+/* ─── Project Grid ───────────────────────────────────────────── */
+
+/* ── ACTIVE: 2-column editorial layout ─────────────────────────
+   Cards fill the standard content width (1104px).
+   Card height: 400px — keeps first row fully visible at 1440×900.
+   To switch to 3-col: swap .work__grid for .work__grid--3col below. */
+.work__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  padding-bottom: var(--section-gap);
+  contain: layout paint;
+}
+
+.work__card-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.work__card .project-card__media-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* Meta text scaled to match the larger 2-col cards */
+.work__card .project-card__meta-name {
+  font-size: var(--font-size-body1);
+}
+
+.work__card .project-card__meta-detail {
+  font-size: var(--font-size-body2);
+}
+
+/* ── INACTIVE: 3-column grid — uncomment + swap className in Work.js ──
+
+.work__grid--3col {
+  display: grid;
+  grid-template-columns: repeat(3, 338px);
+  column-gap: 28px;
+  row-gap: 56px;
+  justify-content: center;
+  padding-bottom: var(--section-gap);
+}
+
+.work__grid--3col .work__card .project-card__media-wrapper {
+  width: 338px;
+  height: 422px;
+}
+
+*/
+
+/* ─── JPEG card thumbnails ───────────────────────────────────── */
+.work__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.27, 0, 0.18, 1);
+  transform: scale(1);
+}
+
+.work__card-img--pre-zoom {
+  transform: scale(1.05);
+}
+
+.project-card:hover .work__card-img {
+  transform: scale(1.05);
+}
+
+.project-card:hover .work__card-img--pre-zoom {
+  transform: scale(1.1);
+}
+
+/* ─── CTA ────────────────────────────────────────────────────── */
+.work__cta {
+  padding-bottom: var(--section-gap);
+}
+
+.work__cta-link {
+  font-size: 72px;
+  font-weight: var(--font-weight-regular);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  color: var(--color-black);
+  display: inline-block;
+  transition: opacity 0.2s ease;
+}
+
+.work__cta-link:hover {
+  opacity: 0.35;
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 768px), (max-width: 1024px) and (orientation: portrait) {
+  .work__hero {
+    max-width: 100%;
+  }
+
+  .work__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .work__cta-link {
+    font-size: 36px;
+  }
+
+  .work__card .project-card__meta-name {
+    font-size: var(--font-size-body2);
+  }
+
+  .work__card .project-card__meta-detail {
+    font-size: var(--font-size-label);
+  }
+}
+
+/* ─── iPad ───────────────────────────────────────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait),
+       (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+  .work__cta-link {
+    font-size: 54px;
+  }
+}

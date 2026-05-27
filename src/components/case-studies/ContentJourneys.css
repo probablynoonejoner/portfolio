@@ -1,0 +1,330 @@
+/* ─── Content Journeys case study layout ────────────────────────────
+   Showcase.css is imported in ContentJourneys.js for shared nav/CTA styles.
+   All layout-specific rules use .cs-cj- prefix.
+──────────────────────────────────────────────────────────────────── */
+
+/* ─── Page wrapper ───────────────────────────────────────────── */
+.cs-cj {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Section label ──────────────────────────────────────────── */
+.cs-cj__label {
+  display: block;
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-black);
+  opacity: 0.4;
+  line-height: var(--lh-ui);
+}
+
+/* ─── Body text ──────────────────────────────────────────────── */
+.cs-cj__body {
+  font-size: var(--font-size-body1);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-black);
+}
+
+/* ─── Embed placeholder ──────────────────────────────────────── */
+.cs-cj__embed {
+  background-color: #111111;
+  border-radius: var(--card-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-cj__embed-label {
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1;
+}
+
+/* ─── 1. Project header ──────────────────────────────────────── */
+.cs-cj__header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: var(--section-gap) 0 0;
+  max-width: 680px;
+}
+
+.cs-cj__headline {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  color: var(--color-black);
+}
+
+.cs-cj__summary {
+  font-size: var(--font-size-body1);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-black);
+  opacity: 0.6;
+}
+
+/* ─── Metadata strip ─────────────────────────────────────────── */
+.cs-cj__meta {
+  display: flex;
+  gap: 40px;
+  padding: 28px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin-top: 40px;
+  margin-bottom: var(--section-gap);
+}
+
+.cs-cj__meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.cs-cj__meta-label {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-black);
+  opacity: 0.4;
+  line-height: var(--lh-ui);
+}
+
+.cs-cj__meta-value {
+  font-size: var(--font-size-body1);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-black);
+}
+
+/* ─── Overview row ───────────────────────────────────────────── */
+.cs-cj__overview-row {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  padding-bottom: var(--section-gap);
+}
+
+.cs-cj__overview-text {
+  flex: 0 0 calc(50% - 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+
+.cs-cj__overview-phone {
+  flex: 0 0 calc(50% - 24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── iPhone PNG mockup frame ────────────────────────────────────── */
+.cs-cj__iphone-frame {
+  position: relative;
+  width: 352px;
+  height: 710px;
+}
+
+/* ─── Content sections — 60% width, left aligned ────────────── */
+.cs-cj__section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: var(--section-gap);
+  max-width: 60%;
+}
+
+/* ─── Full-width embed section ───────────────────────────────── */
+.cs-cj__embed-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: var(--section-gap);
+}
+
+.cs-cj__full-embed {
+  width: 100%;
+  height: 500px;
+}
+
+/* ─── Answer key ─────────────────────────────────────────────── */
+.cs-cj__answer-key {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cs-cj__answer-key-intro {
+  font-size: 13px;
+  font-weight: var(--font-weight-regular);
+  color: #888;
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+}
+
+.cs-cj__answer-key-grid {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border);
+}
+
+.cs-cj__answer-key-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cs-cj__answer-key-nutrient {
+  font-size: 13px;
+  font-weight: var(--font-weight-bold);
+  color: #888;
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+}
+
+.cs-cj__answer-key-def {
+  font-size: 13px;
+  font-weight: var(--font-weight-regular);
+  color: #888;
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+}
+
+/* ─── Two-column Rive row ────────────────────────────────────── */
+.cs-cj__rive-row {
+  display: flex;
+  gap: 16px;
+}
+
+.cs-cj__rive-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ─── Two-column content rows (text + phone/embed) ───────────── */
+.cs-cj__content-row {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  padding-top: var(--section-gap);
+}
+
+.cs-cj__section--inline {
+  padding-top: 0;
+  flex: 1;
+}
+
+.cs-cj__content-phone {
+  flex-shrink: 0;
+}
+
+.cs-cj__content-embed {
+  flex-shrink: 0;
+  width: 480px;
+}
+
+.cs-cj__embed-label-mobile {
+  display: none;
+}
+
+/* ─── Spacing before nav ─────────────────────────────────────── */
+.cs-cj .showcase__project-nav {
+  margin-top: var(--section-gap);
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 768px), (max-width: 1024px) and (orientation: portrait) {
+  .cs-cj__header {
+    max-width: 100%;
+  }
+
+  .cs-cj__meta {
+    flex-direction: column;
+    gap: 0;
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .cs-cj__meta-item {
+    flex: 0 0 auto;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .cs-cj__meta-item:last-child {
+    border-bottom: none;
+  }
+
+  .cs-cj__overview-row {
+    flex-direction: column-reverse;
+  }
+
+  .cs-cj__overview-text,
+  .cs-cj__overview-phone {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .cs-cj__iphone-frame {
+    transform: scale(0.88);
+    transform-origin: top center;
+    margin-bottom: -85px;
+  }
+
+  .cs-cj__section {
+    max-width: 100%;
+  }
+
+  .cs-cj__rive-row {
+    flex-direction: column;
+  }
+
+  .cs-cj__content-row {
+    flex-direction: column-reverse;
+    gap: 24px;
+    padding-top: 24px;
+  }
+
+  .cs-cj__section--inline {
+    width: 100%;
+  }
+
+  .cs-cj__content-embed {
+    width: 100%;
+  }
+
+  .cs-cj__embed-label-mobile {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .cs-cj__full-embed {
+    height: 320px;
+  }
+}
+
+@media (max-width: 380px) {
+  .cs-cj__iphone-frame {
+    transform: scale(0.78);
+    margin-bottom: -156px;
+  }
+}

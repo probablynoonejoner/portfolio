@@ -1,13 +1,114 @@
-body {
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  /* Colors */
+  --color-black: #111111;
+  --color-white: #ffffff;
+  --color-placeholder: #dcdcdc;
+  --color-border: rgba(17, 17, 17, 0.1);
+
+  /* Typography */
+  --font-family: 'Manrope', sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Type scale */
+  --font-size-h1: 72px;
+  --font-size-body1: 24px;
+  --font-size-body2: 16px;
+  --font-size-nav: 22px;
+  --font-size-label: 13px;
+
+  /* Line heights */
+  --lh-display: 1.05;   /* H1 — tight, editorial */
+  --lh-body: 1.5;       /* Body copy — comfortable reading */
+  --lh-ui: 1;           /* Nav, labels, single-line UI */
+
+  /* Letter spacing */
+  --ls-display: -0.025em;  /* Large display type */
+  --ls-body: -0.01em;      /* Body — slightly tightened for Manrope */
+  --ls-label: 0.06em;      /* All-caps labels, small metadata */
+
+  /* Layout */
+  --content-width: 1104px;
+  --side-padding: 48px;
+  --section-gap: 96px;
+  --card-radius: 40px;
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── Reset & Base ──────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-body1);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-black);
+  background-color: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  color: inherit;
+  text-decoration: none;
 }
+
+img, video {
+  display: block;
+  max-width: 100%;
+}
+
+/* ─── Mobile tokens ─────────────────────────────────────────── */
+@media (max-width: 768px), (max-width: 1024px) and (orientation: portrait) {
+  :root {
+    --side-padding: 20px;
+    --section-gap: 56px;
+    --card-radius: 24px;
+    --font-size-h1: 40px;
+    --font-size-body1: 20px;
+    --font-size-nav: 18px;
+  }
+}
+
+/* ─── iPad tokens (portrait + landscape) ────────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait),
+       (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+  :root {
+    --side-padding: 32px;
+    --section-gap: 72px;
+    --card-radius: 32px;
+    --font-size-h1: 56px;
+    --font-size-body1: 22px;
+    --font-size-nav: 20px;
+  }
+}
+
+/* ─── Layout Utility ────────────────────────────────────────── */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 var(--side-padding);
+}
+
+.content {
+  width: 100%;
+}
+

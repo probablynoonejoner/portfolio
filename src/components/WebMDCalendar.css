@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=block');
+
+/* ── Root ─────────────────────────────────────────────────────────────────── */
+
+.wmd-root {
+  font-family: 'Lato', sans-serif;
+  width: 306px;
+  height: 680px;
+  background: #F0EFFF;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 38px;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Status bar ───────────────────────────────────────────────────────────── */
+
+.wmd-status-bar {
+  height: 52px;
+  background: #fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 20px 8px;
+  flex-shrink: 0;
+}
+
+.wmd-status-time {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+}
+
+.wmd-status-icons {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Sticky header ────────────────────────────────────────────────────────── */
+
+.wmd-header {
+  background: #fff;
+  flex-shrink: 0;
+  padding: 0 0 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.wmd-header::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: linear-gradient(to bottom, rgba(81, 91, 146, 0.15), transparent);
+  pointer-events: none;
+}
+
+.wmd-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  padding: 10px 16px 6px;
+}
+
+/* ── Month navigation ─────────────────────────────────────────────────────── */
+
+.wmd-month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 16px 6px;
+}
+
+.wmd-arrow-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wmd-month-label-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wmd-month-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: #3557FF;
+  font-family: 'Lato', sans-serif;
+}
+
+.wmd-chevron {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Day-of-week label row ────────────────────────────────────────────────── */
+
+.wmd-day-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 0 10px;
+  margin-bottom: 4px;
+}
+
+.wmd-day-col-label {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #777;
+  text-transform: uppercase;
+}
+
+/* ── Week strip ───────────────────────────────────────────────────────────── */
+
+.wmd-week-strip {
+  margin: 0 10px;
+  background: rgba(81, 91, 146, 0.10);
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 4px 2px;
+  cursor: grab;
+  user-select: none;
+}
+
+.wmd-week-strip:active {
+  cursor: grabbing;
+}
+
+.wmd-week-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Dot row ──────────────────────────────────────────────────────────────── */
+
+.wmd-dot-row {
+  height: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wmd-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #3557FF;
+}
+
+/* ── Day circle ───────────────────────────────────────────────────────────── */
+
+.wmd-day-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: 'Lato', sans-serif;
+  position: relative;
+}
+
+/* ── Month grid ───────────────────────────────────────────────────────────── */
+
+.wmd-month-grid {
+  padding: 0 10px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wmd-month-week-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-radius: 30px;
+  padding: 4px 2px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.wmd-month-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+/* ── Event list ───────────────────────────────────────────────────────────── */
+
+.wmd-event-list {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #F0EFFF;
+  padding: 6px 14px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: relative;
+  overscroll-behavior: contain;
+  overflow-anchor: none;
+}
+
+.wmd-event-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Day section ──────────────────────────────────────────────────────────── */
+
+.wmd-day-section {
+  margin-bottom: 8px;
+}
+
+
+.wmd-day-label-row {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 4px;
+  padding-left: 2px;
+}
+
+/* ── Empty day ────────────────────────────────────────────────────────────── */
+
+.wmd-empty-day {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.wmd-day-label {
+  font-family: 'Lato', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.wmd-empty-line {
+  flex: 1;
+  height: 0.5px;
+  background: #E0E0E0;
+  margin-right: 2px;
+}
+
+/* ── Event card ───────────────────────────────────────────────────────────── */
+
+.wmd-event-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.wmd-event-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+}
+
+.wmd-event-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.wmd-event-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wmd-event-time {
+  font-size: 11px;
+  font-weight: 400;
+  color: #777;
+}
+
+.wmd-event-divider {
+  height: 0.5px;
+  background: #E0E0E0;
+  margin: 0 14px;
+}
+
+/* ── Event pip ────────────────────────────────────────────────────────────── */
+
+.wmd-event-pip {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── CTA button ───────────────────────────────────────────────────────────── */
+
+.wmd-cta-btn {
+  flex-shrink: 0;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+  transition: background 0.1s, color 0.1s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Bottom nav ───────────────────────────────────────────────────────────── */
+
+.wmd-bottom-nav {
+  flex-shrink: 0;
+  width: 100%;
+  line-height: 0;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 -4px 14px rgba(81, 91, 146, 0.20);
+}
+
+.wmd-bottom-nav svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1.02);
+  transform-origin: bottom center;
+}

@@ -1,0 +1,35 @@
+.desktop-frame {
+  position: relative;
+  width: 1038px; /* FRAME_W */
+  height: 756px; /* TOTAL_H = FRAME_H(664) + NECK_H(64) + BASE_H(28) */
+}
+
+.desktop-frame__screen {
+  position: absolute;
+  top: 20px;    /* BEZEL_TOP */
+  left: 20px;   /* BEZEL_SIDE */
+  width: 998px; /* SCREEN_W */
+  height: 624px; /* SCREEN_H */
+  overflow: hidden;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.desktop-frame__svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 768px), (max-width: 1024px) and (orientation: portrait) {
+  .desktop-frame {
+    transform: scale(0.31);
+    transform-origin: top left;
+    margin-right: -716px;
+    margin-bottom: -522px;
+  }
+}
