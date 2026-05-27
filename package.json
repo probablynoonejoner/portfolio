@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://probablynoonejoner.github.io/portfolio",
   "dependencies": {
     "@rive-app/react-canvas": "^4.28.1",
     "@studio-freight/lenis": "^1.0.42",
