@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Lenis from '@studio-freight/lenis';
 import { LenisContext } from './context/LenisContext';
 import './App.css';
@@ -74,7 +74,7 @@ function App() {
 
   return (
     <LenisContext.Provider value={lenisRef}>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -83,7 +83,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/rive-test" element={<RiveTest />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
     </LenisContext.Provider>
   );
 }
