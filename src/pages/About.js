@@ -23,7 +23,7 @@ export default function About() {
         <motion.section className="about__bio" {...scrollFadeUp}>
           <div className="about__bio-text">
             <p>
-              I'm a Product and Motion designer with a background in motion graphics and a focus on product and interface animation. I care about the details that make products feel considered: the transitions, feedback states, and interactions that most people notice only when they're missing.
+              I'm a Motion and Product designer with a background in motion graphics and a focus on product and interface animation. I care about the details that make products feel considered: the transitions, feedback states, and interactions that most people notice only when they're missing.
             </p>
             <p>
               Most recently I interned as a UX Animator at WebMD Health Services, where I used Rive to design and prototype motion systems across their consumer app. I worked closely with product and engineering teams to bring interaction design to life, from motion specs and state machines to final implementation support.

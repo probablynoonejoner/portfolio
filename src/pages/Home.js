@@ -180,7 +180,7 @@ export default function Home() {
         <motion.section className="home__hero" {...sectionAnim}>
           <motion.div className="home__hero-text" {...textAnim}>
             <h1 className="home__headline">
-              Jonah Freedman is a Product and Motion designer who bridges how things look and how they feel.
+              Jonah Freedman is a Motion and Product designer who bridges how things look and how they feel.
             </h1>
             <p className="home__subhead">
               I design motion systems and interactions that help products feel clear, responsive, and human.
