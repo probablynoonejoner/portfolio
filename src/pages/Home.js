@@ -138,6 +138,17 @@ function ReelVideo() {
     const videoEl = videoRef.current;
     if (!sectionEl || !videoEl) return;
 
+    const onCanPlay = () => {
+      videoEl.play();
+      setLoaded(true);
+    };
+    const onTimeUpdate = () => {
+      if (videoEl.duration) setProgress(videoEl.currentTime / videoEl.duration);
+    };
+
+    videoEl.addEventListener('canplay', onCanPlay);
+    videoEl.addEventListener('timeupdate', onTimeUpdate);
+
     let observer;
 
     const setupObserver = () => {
@@ -158,22 +169,22 @@ function ReelVideo() {
 
     if (document.readyState === 'complete') {
       const t = defer();
-      return () => { clearTimeout(t); observer?.disconnect(); };
+      return () => {
+        clearTimeout(t);
+        observer?.disconnect();
+        videoEl.removeEventListener('canplay', onCanPlay);
+        videoEl.removeEventListener('timeupdate', onTimeUpdate);
+      };
     } else {
       window.addEventListener('load', defer, { once: true });
-      return () => { window.removeEventListener('load', defer); observer?.disconnect(); };
+      return () => {
+        window.removeEventListener('load', defer);
+        observer?.disconnect();
+        videoEl.removeEventListener('canplay', onCanPlay);
+        videoEl.removeEventListener('timeupdate', onTimeUpdate);
+      };
     }
   }, []);
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!loaded || !v) return;
-    const onTimeUpdate = () => {
-      if (v.duration) setProgress(v.currentTime / v.duration);
-    };
-    v.addEventListener('timeupdate', onTimeUpdate);
-    return () => v.removeEventListener('timeupdate', onTimeUpdate);
-  }, [loaded]);
 
   const togglePlayback = () => {
     const v = videoRef.current;
@@ -214,10 +225,6 @@ function ReelVideo() {
           muted
           playsInline
           loop
-          onCanPlay={() => {
-            videoRef.current?.play();
-            setLoaded(true);
-          }}
         />
         {paused && (
           <div className="home__reel-pause-overlay">
