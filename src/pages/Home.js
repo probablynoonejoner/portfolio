@@ -128,38 +128,52 @@ function useIsIPad() {
 function ReelVideo() {
   const [loaded, setLoaded] = useState(false);
   const [paused, setPaused] = useState(false);
+  const [muted, setMuted] = useState(true);
+  const [progress, setProgress] = useState(0);
   const sectionRef = useRef(null);
   const videoRef = useRef(null);
 
   useEffect(() => {
-    const setup = () => {
-      const el = sectionRef.current;
-      if (!el) return;
-      const observer = new IntersectionObserver(
+    const sectionEl = sectionRef.current;
+    const videoEl = videoRef.current;
+    if (!sectionEl || !videoEl) return;
+
+    let observer;
+
+    const setupObserver = () => {
+      observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
             observer.disconnect();
-            if (videoRef.current && !videoRef.current.src) {
-              videoRef.current.src = `${process.env.PUBLIC_URL}/video/Reel%202026.mp4`;
-            }
+            videoEl.src = `${process.env.PUBLIC_URL}/video/Reel%202026.mp4`;
+            videoEl.load();
           }
         },
-        { rootMargin: '400px' }
+        { rootMargin: '0px' }
       );
-      observer.observe(el);
-      return observer;
+      observer.observe(sectionEl);
     };
 
-    let observer;
+    const defer = () => setTimeout(setupObserver, 4000);
+
     if (document.readyState === 'complete') {
-      observer = setup();
+      const t = defer();
+      return () => { clearTimeout(t); observer?.disconnect(); };
     } else {
-      const onLoad = () => { observer = setup(); };
-      window.addEventListener('load', onLoad, { once: true });
-      return () => window.removeEventListener('load', onLoad);
+      window.addEventListener('load', defer, { once: true });
+      return () => { window.removeEventListener('load', defer); observer?.disconnect(); };
     }
-    return () => observer?.disconnect();
   }, []);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!loaded || !v) return;
+    const onTimeUpdate = () => {
+      if (v.duration) setProgress(v.currentTime / v.duration);
+    };
+    v.addEventListener('timeupdate', onTimeUpdate);
+    return () => v.removeEventListener('timeupdate', onTimeUpdate);
+  }, [loaded]);
 
   const togglePlayback = () => {
     const v = videoRef.current;
@@ -168,10 +182,27 @@ function ReelVideo() {
     else { v.pause(); setPaused(true); }
   };
 
+  const toggleMute = (e) => {
+    e.stopPropagation();
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+  };
+
+  const handleScrub = (e) => {
+    e.stopPropagation();
+    const v = videoRef.current;
+    if (!v || !v.duration) return;
+    const val = Number(e.target.value);
+    v.currentTime = val * v.duration;
+    setProgress(val);
+  };
+
   return (
     <section ref={sectionRef} className="home__reel">
       <motion.div
-        className={`home__reel-wrap${paused ? ' home__reel-wrap--paused' : ''}`}
+        className="home__reel-wrap"
         onClick={togglePlayback}
         initial={{ opacity: 0, y: 48 }}
         animate={loaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 48 }}
@@ -180,13 +211,50 @@ function ReelVideo() {
         <video
           ref={videoRef}
           className="home__reel-video"
-          autoPlay
           muted
           playsInline
           loop
-          onCanPlay={() => setLoaded(true)}
+          onCanPlay={() => {
+            videoRef.current?.play();
+            setLoaded(true);
+          }}
         />
-        {paused && <div className="home__reel-play-icon">▶</div>}
+        {paused && (
+          <div className="home__reel-pause-overlay">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="24" fill="rgba(0,0,0,0.4)" />
+              <polygon points="19,15 19,33 36,24" fill="white" />
+            </svg>
+          </div>
+        )}
+        {loaded && (
+          <div className="home__reel-controls" onClick={e => e.stopPropagation()}>
+            <input
+              type="range"
+              className="home__reel-scrub"
+              min={0}
+              max={1}
+              step={0.001}
+              value={progress}
+              onChange={handleScrub}
+            />
+            <button className="home__reel-mute-btn" onClick={toggleMute} aria-label={muted ? 'Unmute' : 'Mute'}>
+              {muted ? (
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M3 7H7L12 3V17L7 13H3V7Z" fill="white" />
+                  <line x1="15" y1="7" x2="19" y2="13" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                  <line x1="19" y1="7" x2="15" y2="13" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M3 7H7L12 3V17L7 13H3V7Z" fill="white" />
+                  <path d="M15 7C16.5 8.2 16.5 11.8 15 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M17.5 5C20 7.3 20 12.7 17.5 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              )}
+            </button>
+          </div>
+        )}
       </motion.div>
     </section>
   );
