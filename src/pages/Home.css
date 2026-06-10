@@ -104,6 +104,19 @@
   border-radius: 40px;
 }
 
+/* ─── Reel ───────────────────────────────────────────────────── */
+.home__reel {
+  width: calc(100% + 2 * var(--side-padding));
+  margin-left: calc(-1 * var(--side-padding));
+  padding-bottom: var(--section-gap);
+  overflow: hidden;
+}
+
+.home__reel-video {
+  width: 100%;
+  display: block;
+}
+
 /* ─── Motion Blurb ───────────────────────────────────────────── */
 .home__blurb {
   padding-bottom: var(--section-gap);

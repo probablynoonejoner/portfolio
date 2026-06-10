@@ -125,6 +125,59 @@ function useIsIPad() {
   return val;
 }
 
+function ReelVideo() {
+  const [loaded, setLoaded] = useState(false);
+  const sectionRef = useRef(null);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const setup = () => {
+      const el = sectionRef.current;
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            observer.disconnect();
+            if (videoRef.current && !videoRef.current.src) {
+              videoRef.current.src = `${process.env.PUBLIC_URL}/video/Reel%202026.mp4`;
+            }
+          }
+        },
+        { rootMargin: '400px' }
+      );
+      observer.observe(el);
+      return observer;
+    };
+
+    let observer;
+    if (document.readyState === 'complete') {
+      observer = setup();
+    } else {
+      const onLoad = () => { observer = setup(); };
+      window.addEventListener('load', onLoad, { once: true });
+      return () => window.removeEventListener('load', onLoad);
+    }
+    return () => observer?.disconnect();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="home__reel">
+      <motion.video
+        ref={videoRef}
+        className="home__reel-video"
+        autoPlay
+        muted
+        playsInline
+        loop
+        onCanPlay={() => setLoaded(true)}
+        initial={{ opacity: 0, y: 48 }}
+        animate={loaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 48 }}
+        transition={{ duration: 1.4, ease: EASE }}
+      />
+    </section>
+  );
+}
+
 function HomepageHeroRive() {
   const isMobile = useIsMobile();
   const isIPad = useIsIPad();
@@ -197,6 +250,9 @@ export default function Home() {
             <HomepageHeroRive />
           </div>
         </motion.section>
+
+        {/* ── Reel ──────────────────────────────────────────── */}
+        <ReelVideo />
 
         {/* ── Motion Blurb ──────────────────────────────────── */}
         <motion.section className="home__blurb" {...scrollFadeUp}>
