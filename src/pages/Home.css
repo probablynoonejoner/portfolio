@@ -106,15 +106,32 @@
 
 /* ─── Reel ───────────────────────────────────────────────────── */
 .home__reel {
-  width: calc(100% + 2 * var(--side-padding));
-  margin-left: calc(-1 * var(--side-padding));
   padding-bottom: var(--section-gap);
+}
+
+.home__reel-wrap {
+  position: relative;
+  border-radius: var(--card-radius);
   overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
 }
 
 .home__reel-video {
   width: 100%;
   display: block;
+}
+
+.home__reel-play-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
 }
 
 /* ─── Motion Blurb ───────────────────────────────────────────── */

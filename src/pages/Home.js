@@ -127,6 +127,7 @@ function useIsIPad() {
 
 function ReelVideo() {
   const [loaded, setLoaded] = useState(false);
+  const [paused, setPaused] = useState(false);
   const sectionRef = useRef(null);
   const videoRef = useRef(null);
 
@@ -160,20 +161,33 @@ function ReelVideo() {
     return () => observer?.disconnect();
   }, []);
 
+  const togglePlayback = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) { v.play(); setPaused(false); }
+    else { v.pause(); setPaused(true); }
+  };
+
   return (
     <section ref={sectionRef} className="home__reel">
-      <motion.video
-        ref={videoRef}
-        className="home__reel-video"
-        autoPlay
-        muted
-        playsInline
-        loop
-        onCanPlay={() => setLoaded(true)}
+      <motion.div
+        className={`home__reel-wrap${paused ? ' home__reel-wrap--paused' : ''}`}
+        onClick={togglePlayback}
         initial={{ opacity: 0, y: 48 }}
         animate={loaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 48 }}
         transition={{ duration: 1.4, ease: EASE }}
-      />
+      >
+        <video
+          ref={videoRef}
+          className="home__reel-video"
+          autoPlay
+          muted
+          playsInline
+          loop
+          onCanPlay={() => setLoaded(true)}
+        />
+        {paused && <div className="home__reel-play-icon">▶</div>}
+      </motion.div>
     </section>
   );
 }
